@@ -83,3 +83,28 @@ public:
         cout << "\n[Admin] Status Member " << m.getNama() << " berhasil diubah." << endl;
     }
 };
+
+// --- Main Program ---
+int main() {
+    // Membuat Admin
+    Admin adminUtama("Super Admin", "admin@web.com");
+
+    // Membuat beberapa Member
+    vector<Member> listMember;
+    listMember.push_back(Member("helmi", "helmigantengs@mail.com"));
+    listMember.push_back(Member("Siti Aminah", "siti@mail.com"));
+
+    // Menampilkan profil awal salah satu member
+    listMember[0].showProfile();
+
+    // Admin melihat semua member
+    adminUtama.showAllMember(listMember);
+
+    // Admin mengubah status Budi
+    adminUtama.toggleActivationMember(listMember[0]);
+
+    // Lihat perubahan pada profil Budi
+    listMember[0].showProfile();
+
+    return 0;
+}
